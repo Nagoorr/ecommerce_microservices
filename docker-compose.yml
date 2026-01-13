@@ -1,0 +1,45 @@
+services:
+#  userservice:
+#    container_name: user_db
+#    image: postgres:14
+#    environment:
+#      POSTGRES_DB: user_db
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: postgres
+#      PGDATA: /data/postgres
+#    ports:
+#      - 5432:5432
+#    networks:
+#      - postgres
+#    restart: unless-stopped
+  productservice:
+    container_name: product_db
+    image: postgres:14
+    environment:
+      POSTGRES_DB: product_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /data/postgres
+    ports:
+      - 5433:5432
+    networks:
+      - postgres
+    restart: unless-stopped
+  orderservice:
+    container_name: order_db
+    image: postgres:14
+    environment:
+      POSTGRES_DB: order_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /data/postgres
+    ports:
+      - 5434:5432
+    networks:
+      - postgres
+    restart: unless-stopped
+volumes:
+  postgres:
+networks:
+  postgres:
+    driver: bridge
