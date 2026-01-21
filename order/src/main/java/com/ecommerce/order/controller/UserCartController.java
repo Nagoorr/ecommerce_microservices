@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 
 @RestController
@@ -19,7 +20,7 @@ public class UserCartController {
     private UserCartService userCartService;
 
     @PostMapping("/addCartItems")
-    public ResponseEntity<Boolean> addUserToCart(@RequestHeader("X-User-ID") String userId, @RequestBody @Valid CartDTO cartDTO) {
+    public ResponseEntity<Boolean> addUserToCart(@RequestHeader("X-User-ID") String userId, @RequestBody @Valid CartDTO cartDTO) throws ExecutionException, InterruptedException {
         return ResponseEntity.ok(userCartService.addUserToCart(userId, cartDTO));
     }
 

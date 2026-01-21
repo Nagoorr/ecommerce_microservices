@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 
 @Data
 public class Address {
-    private Long id;
     private String street;
     private String city;
     private Long pincode;

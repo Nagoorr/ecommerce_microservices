@@ -39,4 +39,9 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductDTO> searchProduct(String keyword) {
         return productRepo.findByproductName(keyword).stream().map(ProductMapper::toProductDTOEntity).toList();
     }
+
+    @Override
+    public ProductDTO findProductById(String id) {
+        return productRepo.findById(Long.parseLong(id)).map(ProductMapper::toProductDTOEntity).orElse(null);
+    }
 }

@@ -40,4 +40,8 @@ public class ProductController {
         return ResponseEntity.ok(productService.searchProduct(keyword));
     }
 
+    @GetMapping("/findProductById/{id}")
+    public ResponseEntity<ProductDTO> findProductById(@PathVariable("id") String id){
+        return ResponseEntity.ok(productService.findProductById(id));
+    }
 }

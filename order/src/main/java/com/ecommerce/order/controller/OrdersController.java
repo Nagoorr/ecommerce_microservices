@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.ExecutionException;
+
 @RestController
 @RequestMapping("/v1")
 public class OrdersController {
@@ -16,7 +18,7 @@ public class OrdersController {
     private OrdersService ordersService;
 
     @PostMapping("/orderItems")
-    public ResponseEntity<Boolean> orderItems(@RequestHeader("X-User-ID") String userId) {
+    public ResponseEntity<Boolean> orderItems(@RequestHeader("X-User-ID") String userId) throws ExecutionException, InterruptedException {
         boolean result = ordersService.orderProduct(userId);
         return ResponseEntity.ok(result);
     }

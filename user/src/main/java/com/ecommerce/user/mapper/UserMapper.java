@@ -6,16 +6,16 @@ import com.ecommerce.user.dto.UserDTO;
 public class UserMapper {
     public static User toUserEntity(UserDTO dto) {
         User user = new User();
-        user.setFirstName(dto.firstName());
-        user.setLastName(dto.lastName());
-        user.setEmail(dto.email());
-        user.setMobileNumber(dto.mobileNumber());
-        user.setAddress(AddressMapper.toAddressEntity(dto.addressDTO()));
+        user.setFirstName(dto.getFirstName());
+        user.setLastName(dto.getLastName());
+        user.setEmail(dto.getEmail());
+        user.setMobileNumber(dto.getMobileNumber());
+        user.setAddress(AddressMapper.toAddressEntity(dto.getAddressDTO()));
         return user;
     }
 
     public static UserDTO toUserDTOEntity(User user) {
-        return new UserDTO(user.getId(), user.getFirstName(), user.getLastName(), user.getEmail()
+        return new UserDTO(user.getId().toHexString(), user.getFirstName(), user.getLastName(), user.getEmail()
                 , user.getMobileNumber(), AddressMapper.toAddressDTOEntity(user.getAddress()));
     }
 

@@ -4,6 +4,7 @@ import com.ecommerce.user.enums.UserRole;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -11,13 +12,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Data
-@Document(value = "users")
+@Document(collection = "users")
 public class User {
     @Id
-    private String Id;
+    private ObjectId id;
     private String firstName;
     private String lastName;
     private String email;

@@ -1,6 +1,7 @@
 package com.ecommerce.user.service.serviceImpl;
 
 import com.ecommerce.user.dto.UserDTO;
+import com.ecommerce.user.entity.User;
 import com.ecommerce.user.mapper.UserMapper;
 import com.ecommerce.user.repo.UserRepo;
 import com.ecommerce.user.service.UserService;
@@ -23,7 +24,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO getUserById(String id) {
-        return UserMapper.toUserDTOEntity(Objects.requireNonNull(userRepo.findById(id).orElse(null)));
+       User user = userRepo.findById(id).orElse(null);
+        return UserMapper.toUserDTOEntity(Objects.requireNonNull(user));
     }
 
     @Override

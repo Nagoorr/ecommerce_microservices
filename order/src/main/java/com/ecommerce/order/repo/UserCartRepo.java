@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface UserCartRepo extends JpaRepository<UserCart,Long> {
 
-    Optional<UserCart> findByUserIdAndProductId(Long userId, Long product);
-    List<UserCart> findByUserId(Long userId);
-    List<UserCart> deleteByUserId(Long userId);
+    Optional<UserCart> findByUserIdAndProductId(String userId, Long product);
+    List<UserCart> findByUserId(String userId);
+    List<UserCart> deleteByUserId(String userId);
 }

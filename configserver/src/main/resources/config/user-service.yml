@@ -1,8 +1,13 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/userdb
+      uri: ${MONGO_DB_URI}
       database: userdb
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 #  datasource:
 #    url: jdbc:postgresql://localhost:5432/user_db
 #    username: postgres
@@ -16,3 +21,18 @@ spring:
 #    show-sql: true
 server:
   port: 8082
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+

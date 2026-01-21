@@ -1,10 +1,14 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5434/order_db
-    username: postgres
-    password: postgres
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
-
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
   jpa:
     hibernate:
       ddl-auto: update
@@ -12,3 +16,17 @@ spring:
     show-sql: true
 server:
   port: 8083
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true

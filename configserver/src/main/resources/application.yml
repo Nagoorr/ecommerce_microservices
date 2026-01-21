@@ -7,7 +7,14 @@ spring:
     config:
       server:
         native:
-          search-locations: classpath:/config
+          search-locations: file:///D:\ecommerce_microservices\configserver\src\main\resources\config
 
 server:
   port: 8888
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+

@@ -4,9 +4,10 @@ import com.ecommerce.order.dto.CartDTO;
 import com.ecommerce.order.dto.UserCartDTO;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public interface UserCartService {
-    boolean addUserToCart(String header , CartDTO cartDTO);
+    boolean addUserToCart(String header , CartDTO cartDTO) throws ExecutionException, InterruptedException;
 
     void removeItems(String userId, Long id);
 

@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.util.List;
 public record OrdersDTO(Long orderId,
                         OrderStatus orderStatus,
-                        Long userId,
+                        String userId,
                         BigDecimal totalPrice,
                         List<OrderedItemsDTO> orderItemsList) {
 }

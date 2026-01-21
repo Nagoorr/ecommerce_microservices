@@ -1,6 +1,6 @@
 package com.ecommerce.order.dto;
-
 import java.math.BigDecimal;
+
 
 public record ProductDTO(Long productId,
         String productName,
