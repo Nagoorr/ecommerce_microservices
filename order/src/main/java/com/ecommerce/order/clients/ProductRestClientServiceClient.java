@@ -11,9 +11,9 @@ import org.springframework.web.service.annotation.PutExchange;
 @HttpExchange
 public interface ProductRestClientServiceClient {
 
-    @GetExchange("/v1/findProductById/{id}")
+    @GetExchange("/v1/products/findProductById/{id}")
     ProductResponse findProductById(@PathVariable String id);
 
-    @PutExchange("/v1/updateProduct/{productId}")
+    @PutExchange("/v1/products/updateProduct/{productId}")
     void updateProduct(@PathVariable String productId,@RequestBody ProductDTO productDTO);
 }

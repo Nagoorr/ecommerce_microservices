@@ -13,7 +13,7 @@ import java.util.concurrent.ExecutionException;
 
 
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/v1/cart")
 public class UserCartController {
 
     @Autowired

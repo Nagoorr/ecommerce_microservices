@@ -16,6 +16,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
         <module>user</module>
         <module>configserver</module>
         <module>eureka-server</module>
+        <module>api-gateway</module>
     </modules>
 
 </project>

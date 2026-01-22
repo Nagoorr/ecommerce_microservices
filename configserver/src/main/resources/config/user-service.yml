@@ -35,4 +35,12 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
     register-with-eureka: true
     fetch-registry: true
+logging:
+  level:
+    root: INFO
+  file:
+    name: logs/${spring.application.name}
+  logback:
+    rollingpolicy:
+      max-file-size: 5MB
 

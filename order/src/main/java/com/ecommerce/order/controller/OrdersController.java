@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.concurrent.ExecutionException;
 
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/v1/orders")
 public class OrdersController {
 
     @Autowired
