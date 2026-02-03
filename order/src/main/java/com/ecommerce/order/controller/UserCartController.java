@@ -20,7 +20,7 @@ public class UserCartController {
     private UserCartService userCartService;
 
     @PostMapping("/addCartItems")
-    public ResponseEntity<Boolean> addUserToCart(@RequestHeader("X-User-ID") String userId, @RequestBody @Valid CartDTO cartDTO) throws ExecutionException, InterruptedException {
+    public ResponseEntity<Boolean> addUserToCart(@RequestHeader("X-User-ID") String userId, @RequestBody @Valid CartDTO cartDTO) throws Exception {
         return ResponseEntity.ok(userCartService.addUserToCart(userId, cartDTO));
     }
 

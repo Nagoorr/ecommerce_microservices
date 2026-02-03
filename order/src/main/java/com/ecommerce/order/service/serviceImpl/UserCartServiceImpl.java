@@ -30,18 +30,17 @@ public class UserCartServiceImpl implements UserCartService {
     @Autowired
     private ProductRestClientServiceClient productRestClientServiceClient;
 
+   // @CircuitBreaker(name = "productService",fallbackMethod = "addToCartFallBack")
     @Override
-    public boolean addUserToCart(String userId, CartDTO cartDTO) throws ExecutionException, InterruptedException {
+    public boolean addUserToCart(String userId, CartDTO cartDTO) throws Exception {
         Mono<UserResponse> mono = userWebClientService.findById(userId);
         UserResponse user = mono.toFuture().get();
         if (user == null) {
-            return false;
+            throw new Exception("user not available or issue with server");
         }
-        System.out.println("user "+ user);
         ProductResponse product = productRestClientServiceClient.findProductById(String.valueOf(cartDTO.productId()));
-        System.out.println("product "+ product);
         if (product == null) {
-            return false;
+            throw new Exception("product not available or issue with server");
         }
         if (product.getStockQuantity() < cartDTO.quantity())
             return false;
@@ -79,4 +78,9 @@ public class UserCartServiceImpl implements UserCartService {
           //Mono<UserDTO> userOptional = userWebClientService.findById(userId);
         return userCartRepo.findByUserId(userId).stream().map(CartMapper::toCartDTOEntity).toList();
     }
+
+//    public boolean addToCartFallBack(String userId,CartDTO cartDTO,Exception e){
+//        e.printStackTrace();
+//        return false;
+//    }
 }

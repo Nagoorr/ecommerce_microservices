@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public interface UserCartService {
-    boolean addUserToCart(String header , CartDTO cartDTO) throws ExecutionException, InterruptedException;
+    boolean addUserToCart(String header , CartDTO cartDTO) throws Exception;
 
     void removeItems(String userId, Long id);
 
